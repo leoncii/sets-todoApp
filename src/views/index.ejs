@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>My listaDeTareas</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: rebeccapurple;
+            font-size: 20px;
+        }
+
+        input {
+            margin: 1em 0em 1em 1em;
+        }
+
+        button {
+            margin: 1em;
+        }
+
+        .listaDeTareas {
+            color: red;
+        }
+
+        .container {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Todo list App</h1>
+
+    <ul>
+        <% listaDeTareas.forEach(function(todo, index) { %>
+        <li class="listaDeTareas"><a href="/todo/delete/<%= index %>">X</a> <%= todo %></li>
+        <% }); %>
+    </ul>
+
+    <form action="/todo/:add/" method="post">
+        <div class="container">
+            <h3>What shoud I do?</h3>
+            <input type="text" name="nuevaTarea" placeholder="agregar tarea nueva" autofocus />
+            <button type="submit">Confirm</button>
+            <button type="submit">nueva session</button>
+        </div>
+    </form>
+</body>
+
+</html>

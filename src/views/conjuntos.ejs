@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: grid;
+      max-width: 100%;
+      max-height: 100vh;
+      /* grid-template-columns: 1fr 1fr 1fr; */
+      grid-template-rows: 1fr;
+
+      text-align: center;
+      /* align-items: center; */
+      /* grid-template-areas: "entradas" "salidas"; */
+    }
+    .tabla {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+    }
+    tr {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+  </style>
+</head>
+
+<body>
+  <table class="tabla">
+    <thead>
+      <tr>
+        <th>OriginalA</th>
+        <th>OriginalB</th>
+        <th>Salida A</th>
+        <th>Salida B</th>
+        <th>Interseccion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th><%=original1 %></th>
+        <th><%=original2 %></th>
+        <th><%=conjunto1 %></th>
+        <th><%=conjunto2 %></th>
+        <th><%= inter%></th>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <h1>CONJUNTOS</h1>
+    <div class="entradas">
+      <h3>salida A</h3>
+      <p><i><%= conjunto1 %></i></p>
+      <h3>salida B</h3>
+      <p><i><%= conjunto2 %></i></p>
+    </div>
+    <div class="salidas">
+      <h3>Interseccion</h3>
+      <p><i><%= inter %></i></p>
+      <h3>Conjunto A</h3>
+      <p><i><%= original1 %></i></p>
+      <h3>Conjunto B</h3>
+      <p><i><%= original2 %></i></p>
+    </div>
+
+    <form class="form" action="/conjuntos" method="post">
+      <input type="text" name="conjuntos1" autofocus />
+      <input type="text" name="conjuntos2" autofocus />
+      <button type="submit">Do it</button>
+    </form>
+  </div>
+</body>
+
+</html>
